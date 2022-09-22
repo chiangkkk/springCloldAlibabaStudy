@@ -6,6 +6,7 @@ target/
 /logs
 /work
 *.log
+nacos/logs
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
