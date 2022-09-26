@@ -3,10 +3,14 @@ package org.chiangkai.controller;
 import lombok.AllArgsConstructor;
 import org.chiangkai.domain.Book;
 import org.chiangkai.service.BookService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author ChiangKai
@@ -14,13 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/book")
-@AllArgsConstructor
 public class BookController {
 
-    final BookService bookService;
+    @Resource
+    BookService bookService;
 
     @GetMapping("/{id}")
-    public Book book(@PathVariable Integer id){
+    public Book book(@PathVariable Integer id) {
         return bookService.getBook(id);
     }
+
 }
