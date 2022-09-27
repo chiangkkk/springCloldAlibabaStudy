@@ -23,4 +23,22 @@ public interface UserClient {
      */
     @GetMapping(value = "/{id}")
     ApiResult<User> getUserById(@PathVariable(value = "id") Integer id);
+
+
+    /**
+     * 用户可借书籍数量减一
+     *
+     * @param bid 书籍id
+     * @return {@link ApiResult}<{@link ?}>
+     */
+    @GetMapping("/borrow/{uid}")
+    ApiResult<?> setRemain(@PathVariable("uid") Integer uid);
+
+    /**
+     * 获取用户 书可以借的数量
+     *
+     * @return {@link ApiResult}<{@link Integer}>
+     */
+    @GetMapping("/remain/{uid}")
+    ApiResult<Integer> getUserNumberOfBooksCanBorrowed(@PathVariable("uid") Integer uid);
 }

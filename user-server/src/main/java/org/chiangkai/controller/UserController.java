@@ -25,13 +25,13 @@ public class UserController {
         return userService.getById(id);
     }
 
-    @RequestMapping("/remain/{uid}")
-    public Integer userRemain(@PathVariable("uid") int uid) {
+    @GetMapping("/remain/{uid}")
+    public Integer userRemain(@PathVariable("uid") Integer uid) {
         return userService.getRemain(uid);
     }
 
-    @RequestMapping("/user/borrow/{uid}")
-    public boolean userBorrow(@PathVariable("uid") int uid){
+    @GetMapping("/borrow/{uid}")
+    public boolean userBorrow(@PathVariable("uid") Integer uid) {
         return userService.setRemain(uid);
     }
 }

@@ -1,5 +1,6 @@
 package org.chiangkai.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import org.chiangkai.domain.Book;
 import org.chiangkai.mapper.BookMapper;
@@ -13,12 +14,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements BookService {
 
-    final BookMapper bookMapper;
 
     @Override
     public Book getBook(Integer bid) {
-        return bookMapper.selectByBid(bid);
+        return baseMapper.selectByBid(bid);
+    }
+
+    @Override
+    public void setRemain(int bid) {
+        Book book = getBook(bid);
+        Integer bookCount = book.getCount();
+        book.setCount(bookCount - 1);
+        baseMapper.updateById(book);
     }
 }

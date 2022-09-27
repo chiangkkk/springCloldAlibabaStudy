@@ -18,4 +18,6 @@ public interface BookService {
      * @return {@link Book}
      */
     Book getBook(Integer bid);
+
+    void setRemain(int bid);
 }

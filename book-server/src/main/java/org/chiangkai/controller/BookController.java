@@ -26,4 +26,10 @@ public class BookController {
         return bookService.getBook(id);
     }
 
+
+    @GetMapping("/remain/{bid}")
+    public void setRemain(@PathVariable("bid") int bid){
+        bookService.setRemain(bid);
+    };
+
 }
