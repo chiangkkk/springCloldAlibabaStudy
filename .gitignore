@@ -9,6 +9,7 @@ target/
 nacos/logs
 nacos/data
 ### IntelliJ IDEA ###
+*.sst
 .idea
 .idea/modules.xml
 .idea/jarRepositories.xml
