@@ -10,6 +10,9 @@ public interface UserService extends IService<User> {
 
     int updateByPrimaryKeySelective(User record);
 
+    Integer getRemain(int uid);
+
+    boolean setRemain(int uid);
 }
 
 

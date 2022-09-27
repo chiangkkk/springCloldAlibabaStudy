@@ -18,6 +18,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public int updateByPrimaryKeySelective(User record) {
         return baseMapper.updateByPrimaryKeySelective(record);
     }
+
+    @Override
+    public Integer getRemain(int uid) {
+        return getById(uid).getBookCount();
+    }
+
+    @Override
+    public boolean setRemain(int uid) {
+        User user = getById(uid);
+        user.setBookCount(user.getBookCount() - 1);
+        updateByPrimaryKeySelective(user);
+        return true;
+    }
 }
 
 

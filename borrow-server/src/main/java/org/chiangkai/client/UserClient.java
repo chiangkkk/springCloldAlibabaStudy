@@ -1,6 +1,7 @@
 package org.chiangkai.client;
 
 import org.chiangkai.domain.User;
+import org.chiangkai.domain.result.ApiResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2022/9/22
  */
 
-@FeignClient(name = "userServer",path = "/user")
+@FeignClient(name = "userServer", path = "/user")
 public interface UserClient {
     /**
      * 得到用户
@@ -21,5 +22,5 @@ public interface UserClient {
      * @return {@link User}
      */
     @GetMapping(value = "/{id}")
-    User getUserById(@PathVariable(value = "id") Integer id);
+    ApiResult<User> getUserById(@PathVariable(value = "id") Integer id);
 }

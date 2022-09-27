@@ -24,9 +24,14 @@ public class Book {
     @TableField(value = "`desc`")
     private String desc;
 
+    @TableField(value = "count")
+    private Integer count;
+
     public static final String COL_BID = "bid";
 
     public static final String COL_TITLE = "title";
 
     public static final String COL_DESC = "desc";
+
+    public static final String COL_COUNT = "count";
 }

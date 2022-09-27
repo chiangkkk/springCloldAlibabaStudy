@@ -21,6 +21,9 @@ public class User {
     @TableField(value = "sex")
     private Object sex;
 
+    @TableField(value = "book_count")
+    private Integer bookCount;
+
     public static final String COL_UID = "uid";
 
     public static final String COL_NAME = "name";
@@ -28,4 +31,6 @@ public class User {
     public static final String COL_AGE = "age";
 
     public static final String COL_SEX = "sex";
+
+    public static final String COL_BOOK_COUNT = "book_count";
 }

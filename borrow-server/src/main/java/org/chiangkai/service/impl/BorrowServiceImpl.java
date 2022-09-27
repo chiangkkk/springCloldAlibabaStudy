@@ -6,6 +6,8 @@ import org.chiangkai.client.BookClient;
 import org.chiangkai.client.UserClient;
 import org.chiangkai.domain.User;
 import org.chiangkai.dto.UserBorrowInfoDTO;
+import org.chiangkai.proxy.BookProxy;
+import org.chiangkai.proxy.UserProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BorrowServiceImpl extends ServiceImpl<BorrowMapper, Borrow> implements BorrowService {
 
     @Override
@@ -29,16 +32,14 @@ public class BorrowServiceImpl extends ServiceImpl<BorrowMapper, Borrow> impleme
         return baseMapper.updateByPrimaryKeySelective(record);
     }
 
-    @Autowired
-    UserClient userClient;
+    final BookProxy bookProxy;
 
-    @Autowired
-    BookClient bookClient;
+    final UserProxy userProxy;
 
     @Override
     public UserBorrowInfoDTO getByUserId(Integer uid) {
         QueryWrapper<Borrow> wrapper = new QueryWrapper<>();
-        User user = userClient.getUserById(uid);
+        User user = userProxy.getUserByUid(uid);
         if (null == user) {
             return null;
         }
@@ -48,7 +49,7 @@ public class BorrowServiceImpl extends ServiceImpl<BorrowMapper, Borrow> impleme
         info.setUser(user);
         info.setBookList(new ArrayList<>());
         for (Borrow borrow : list) {
-            info.getBookList().add(bookClient.getBook(borrow.getBid()));
+            info.getBookList().add(bookProxy.getBookByBid(borrow.getBid()));
         }
         return info;
     }

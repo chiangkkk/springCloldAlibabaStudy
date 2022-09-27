@@ -8,6 +8,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="sex" jdbcType="OTHER" property="sex" />
+    <result column="book_count" javaType="INTEGER" property="bookCount" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
