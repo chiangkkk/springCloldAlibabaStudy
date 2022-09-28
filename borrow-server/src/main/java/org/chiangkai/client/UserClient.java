@@ -3,10 +3,8 @@ package org.chiangkai.client;
 import org.chiangkai.domain.User;
 import org.chiangkai.domain.result.ApiResult;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author ChiangKai
@@ -28,15 +26,17 @@ public interface UserClient {
     /**
      * 用户可借书籍数量减一
      *
-     * @param bid 书籍id
+     * @param uid 书籍id
      * @return {@link ApiResult}<{@link ?}>
      */
     @GetMapping("/borrow/{uid}")
     ApiResult<?> setRemain(@PathVariable("uid") Integer uid);
 
     /**
+     * 获取用户数量书可以借了
      * 获取用户 书可以借的数量
      *
+     * @param uid uid
      * @return {@link ApiResult}<{@link Integer}>
      */
     @GetMapping("/remain/{uid}")

@@ -1,7 +1,6 @@
 package org.chiangkai.controller;
 
 import org.chiangkai.domain.Book;
-import org.chiangkai.domain.result.ApiResult;
 import org.chiangkai.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +26,19 @@ public class BookController {
     }
 
 
-    @GetMapping("/remain/{bid}")
-    public void setRemain(@PathVariable("bid") int bid){
+    @GetMapping("/borrow/{bid}")
+    public void setRemain(@PathVariable("bid") int bid) {
         bookService.setRemain(bid);
-    };
+    }
+
+    ;
+
+    @GetMapping("/remain/{bid}")
+    public Integer getRemain(@PathVariable("bid") int bid) {
+        return bookService.getRemain(bid);
+    }
+
+    ;
+
 
 }

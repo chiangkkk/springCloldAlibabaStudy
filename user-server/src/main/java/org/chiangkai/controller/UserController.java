@@ -34,4 +34,5 @@ public class UserController {
     public boolean userBorrow(@PathVariable("uid") Integer uid) {
         return userService.setRemain(uid);
     }
+
 }

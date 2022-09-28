@@ -16,9 +16,14 @@ public class UserProxyImpl extends BaseProxy implements UserProxy {
 
     final UserClient userClient;
 
-
     @Override
     public User getUserByUid(Integer uid) {
         return getData(userClient.getUserById(uid));
+    }
+
+    @Override
+    public boolean decreaseUserBookCount(Integer uid) {
+        isSuccessState(userClient.setRemain(uid));
+        return true;
     }
 }

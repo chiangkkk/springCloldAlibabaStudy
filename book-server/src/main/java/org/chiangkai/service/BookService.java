@@ -20,4 +20,6 @@ public interface BookService {
     Book getBook(Integer bid);
 
     void setRemain(int bid);
+
+    Integer getRemain(int bid);
 }

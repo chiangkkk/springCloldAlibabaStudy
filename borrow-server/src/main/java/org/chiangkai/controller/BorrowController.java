@@ -24,4 +24,15 @@ public class BorrowController {
     public UserBorrowInfoDTO getByUserId(@PathVariable Integer uid) {
         return borrowService.getByUserId(uid);
     }
+
+    /**
+     * 借书控制器
+     *
+     * @param uid 用户ID
+     * @param bid 书籍ID
+     */
+    @GetMapping("/take/{uid}/{bid}")
+    public void borrow(@PathVariable("uid") Integer uid, @PathVariable("bid") Integer bid) {
+        borrowService.borrow(uid,bid);
+    }
 }
