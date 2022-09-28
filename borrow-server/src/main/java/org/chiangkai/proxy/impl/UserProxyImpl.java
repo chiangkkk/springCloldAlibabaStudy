@@ -26,4 +26,9 @@ public class UserProxyImpl extends BaseProxy implements UserProxy {
         isSuccessState(userClient.setRemain(uid));
         return true;
     }
+
+    @Override
+    public Integer getUserBookRemain(Integer uid) {
+        return getData(userClient.getUserNumberOfBooksCanBorrowed(uid));
+    }
 }

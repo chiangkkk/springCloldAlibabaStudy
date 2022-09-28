@@ -23,4 +23,12 @@ public interface UserProxy {
      * @return boolean
      */
     boolean decreaseUserBookCount(Integer uid);
+
+    /**
+     * 获取用户可借书籍数量
+     *
+     * @param uid uid
+     * @return {@link Integer}
+     */
+    Integer getUserBookRemain(Integer uid);
 }

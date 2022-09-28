@@ -4,6 +4,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.chiangkai.domain.Borrow;
 import org.chiangkai.dto.UserBorrowInfoDTO;
 
+/**
+ * 用户借书服务
+ *
+ * @author ChiangKai
+ * @date 2022/09/28
+ */
 public interface BorrowService extends IService<Borrow> {
 
 
