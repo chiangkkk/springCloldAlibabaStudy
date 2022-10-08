@@ -23,8 +23,7 @@ public class UserProxyImpl extends BaseProxy implements UserProxy {
 
     @Override
     public boolean decreaseUserBookCount(Integer uid) {
-        isSuccessState(userClient.setRemain(uid));
-        return true;
+        return isSuccessState(userClient.setRemain(uid));
     }
 
     @Override

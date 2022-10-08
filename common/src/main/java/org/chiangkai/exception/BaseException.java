@@ -1,8 +1,5 @@
 package org.chiangkai.exception;
 
-import org.chiangkai.domain.result.Api;
-import org.chiangkai.domain.result.ApiCode;
-
 import java.util.Date;
 
 /**
@@ -55,14 +52,6 @@ public class BaseException extends RuntimeException {
         this.errorTime = errorTime;
     }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public String getServerName() {
         return serverName;
@@ -81,8 +70,6 @@ public class BaseException extends RuntimeException {
     private String traceLogId;
 
     private Date errorTime;
-
-    private String message;
 
     private String serverName;
 }

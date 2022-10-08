@@ -24,8 +24,7 @@ public class BookProxyImpl extends BaseProxy implements BookProxy {
 
     @Override
     public boolean decreaseBookCount(Integer bid) {
-        isSuccessState(bookClient.setRemain(bid));
-        return true;
+        return isSuccessState(bookClient.setRemain(bid));
     }
 
     @Override

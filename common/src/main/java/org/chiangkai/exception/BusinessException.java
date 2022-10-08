@@ -1,9 +1,5 @@
 package org.chiangkai.exception;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.Date;
-
 /**
  * 业务异常
  *

@@ -42,7 +42,7 @@ public class ApiResultAdvice implements ResponseBodyAdvice<Object> {
 
     @ExceptionHandler(BusinessException.class)
     public ApiResult<Object> businessException(BusinessException e) {
-        log.info(e.getMessage());
+        log.info("业务失败:{}", e.getMessage());
         return ApiResult.fail(e.getMessage());
     }
 
